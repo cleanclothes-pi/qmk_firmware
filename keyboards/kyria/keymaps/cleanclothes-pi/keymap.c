@@ -15,11 +15,6 @@
  */
 #include QMK_KEYBOARD_H
 
-/* #ifdef UNICODEMAP_ENABLE */
-/*   #include "thai-keymap.h" */
-/* #endif */
-
-
 typedef union {
     uint32_t raw;
     struct {
@@ -36,6 +31,7 @@ user_config_t user_config;
 
 #define KC_PAST KC_KP_ASTERISK
 #define Key_Y KC_Y
+#define OneSFT OSM(MOD_LSFT)
 
 // Define Left Thumb keys L + [TopLeft,TopRight,BottomLeft,BottomRight]
 #define ThL_TI TD(LGC)
@@ -56,13 +52,13 @@ user_config_t user_config;
 // Right hand
 #define HOME_T LCTL_T(KC_T)
 #define HOME_S LSFT_T(KC_S)
-#define HOME_R LALT_T(KC_R)
-#define HOME_A LGUI_T(KC_A)
+#define HOME_R LGUI_T(KC_R)
+#define HOME_A LALT_T(KC_A)
 // Left hand
 #define HOME_N LCTL_T(KC_N)
 #define HOME_E RSFT_T(KC_E)
-#define HOME_I LALT_T(KC_I)
-#define HOME_O LGUI_T(KC_O)
+#define HOME_I LGUI_T(KC_I)
+#define HOME_O LALT_T(KC_O)
 
 #define NN_COMMA LT(_NN,KC_COMMA)
 #define SYMB_G LT(_SYMB,KC_G)
@@ -70,13 +66,13 @@ user_config_t user_config;
 
 // THAI LAYER HOME ROW
     // left hand
-#define TH_HOME_F LSFT_T(KC_F)
-#define TH_HOME_D LT(_THUP, KC_D)
-#define TH_HOME_S LT(_THCOMMON, KC_S)
+#define TH_HOME_F LT(_THCOMMON, KC_F)
+#define TH_HOME_D LSFT_T(KC_D)
+#define TH_HOME_S LT(_THUP, KC_S)
     // right hand
-#define TH_HOME_J LSFT_T(KC_J)
-#define TH_HOME_K LT(_THUP, KC_K)
-#define TH_HOME_L LT(_THCOMMON, KC_L)
+#define TH_HOME_J LT(_THCOMMON, KC_J)
+#define TH_HOME_K LSFT_T(KC_K)
+#define TH_HOME_L LT(_THUP, KC_L)
 
 // Words
 #define PrvWd LCTL(KC_LEFT)
@@ -85,16 +81,6 @@ user_config_t user_config;
 #define BtmPG LCTL(KC_END)
 #define DelPWord LCTL(KC_BSPC)
 #define DelNWord LCTL(KC_DEL)
-// One Shot Modifiers alias
-#define OneSFT OSM(MOD_LSFT)
-#define OneGC OSM(MOD_LGUI|MOD_LCTL)
-#define OneGS OSM(MOD_LGUI|MOD_LSFT)
-#define OneGA OSM(MOD_LGUI|MOD_LALT)
-#define OneCS OSM(MOD_LCTL|MOD_LSFT)
-#define OneCA OSM(MOD_LCTL|MOD_LALT)
-#define OneSA OSM(MOD_LALT|MOD_LSFT)
-#define OneMEH OSM(MOD_MEH)
-#define OneHYPR OSM(MOD_HYPR)
 
 // WSPC Windows Manager Workspaces switching
 #define WSP_1 LGUI(KC_1)
@@ -107,10 +93,6 @@ user_config_t user_config;
 
 #define WSP_QUIT LGUI(KC_Q)
 #define WSP_TAB LGUI(KC_TAB)
-/* #define WSPC_SWITCH LGUI(KC_ESC) */
-/* #define WSP_FULL LGUI(KC_F) */
-/* #define WSP_MAX LGUI(KC_M) */
-/* #define WSP_MIN LGUI(KC_N) */
 #define WSP_LAY LGUI(KC_SPACE)
 
 // Tiling window manager
@@ -200,34 +182,7 @@ enum {
     MNS_PER,
     DOT_COMM,
     // Advance TD keycodes
-    /* HOME_I */
 };
-
-// ============ ADVANCE TAP DANCE CHUNK <- BEGINS =================
-// Advance Tap Dance keycodes
-/* enum td_keycodes { */
-/*     HOME_I, */
-/* }; */
-
-// Define a type containing tapdance states
-/* typedef enum { */
-/*     SINGLE_TAP=1, // <<<-- to be tested if it solve spill over to TD(ESCAP) key in other layer */
-/*     SINGLE_HOLD, */
-/*     DOUBLE_SINGLE_TAP, */
-/*     DOUBLE_HOLD */
-/* } td_state_t; */
-
-// Create a global instance of the tapdance state type
-/* static td_state_t td_state; */
-
-// Function to determine the current tapdance state
-/* uint8_t cur_dance(qk_tap_dance_state_t *state); */
-// `finished` and `reset` functions for each tapdance keycode
-// for  HOME_I
-/* void homei_finished(qk_tap_dance_state_t *state, void *user_data); */
-/* void homei_reset(qk_tap_dance_state_t *state, void *user_data); */
-
-// ============ ADVANCE TAP DANCE CHUNK <- ENDS =================
 
 // Tap Dance definition
 qk_tap_dance_action_t tap_dance_actions[] = {
@@ -245,9 +200,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_LT_GT] = ACTION_TAP_DANCE_DOUBLE(KC_LT, KC_GT),
     [MNS_PER] = ACTION_TAP_DANCE_DOUBLE(KC_PMNS, KC_PERC),
     [DOT_COMM] = ACTION_TAP_DANCE_DOUBLE(KC_PDOT, KC_COMM),
-
-// Define `ACTION_TAP_DANCE_FN_ADVANCED()` for each tapdance keycode, passing in `finished` and `reset` functions
-    /* [HOME_I] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, homei_finished, homei_reset), */
 };
 
 // ============= COMBO =================//
@@ -409,7 +361,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_THUP] = LAYOUT(
     //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
-         ____  ,  KC_1  , KC_LBRC, KC_RBRC,  KC_7  ,  ____  ,                                                   ____  , KC_QUOT,  thEEA ,  ____  ,  ____  ,  ____  , 
+         ____  ,  KC_1  ,  ____  , KC_LBRC,  KC_7  ,  ____  ,                                                   ____  , KC_QUOT, KC_RBRC,  ____  ,  ____  ,  ____  , 
     //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
          ____  ,  ____  ,  KC_4  ,  KC_5  , KC_CIRC,  KC_6  ,                                                   KC_0  ,  KC_8  ,  KC_9  , KC_MINS, KC_EQL ,  ____  ,
     //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
@@ -437,7 +389,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NN] = LAYOUT(
 
     //+--------+--------+--------+--------+--------+--------\                                                /--------+--------+--------+--------+--------+-------\*
-       KC_PAST , KC_EQL ,  KC_P1 ,  KC_P2 ,  KC_P3 , KC_PPLS,                                              TopPG  ,  PrvWd , KC_PGDN, KC_PGUP, NxtWd  ,  ____  ,  
+       KC_PAST , KC_EQL ,  KC_P1 ,  KC_P2 ,  KC_P3 , KC_PPLS,                                                  TopPG  ,  PrvWd , KC_PGDN, KC_PGUP, NxtWd  ,  ____  ,  
     //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
         PrvWd ,TD(DOT_COMM),KC_P4,  KC_P5 ,  KC_P6 , KC_P0  ,                                                  BtmPG  , KC_LEFT, KC_DOWN, KC_UP  ,KC_RIGHT,  NxtWd ,
     //+--------+--------+--------+--------+--------+--------+-----------+--------+        +--------+---------+--------+--------+--------+--------+--------+--------+
@@ -469,7 +421,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
         PrvWd  ,  LT_GT , KC_LPRN, KC_LCBR, KC_LBRC, KC_EQL,                                                 KC_BSLS , KC_RBRC, KC_RCBR, KC_RPRN,  KC_GT ,  NxtWd ,
     //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
-      DelPWord , KC_HOME, PrvWd  , OneGC  , OneGA  , OneHYPR,  ____  ,  ____  ,               ____  ,  ____  , OneMEH , OneCA  , OneCS  , NxtWd  , KC_END , DelNWord, 
+      DelPWord , KC_HOME, PrvWd  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,  ____  ,  ____  ,  ____  , NxtWd  , KC_END , DelNWord, 
     //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
                                     ____  ,  ____  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,G(KC_BSLS), Chinput, TG(_TH)
     //                           \--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+
@@ -528,60 +480,6 @@ void keyboard_post_init_user(void) {
     // Read the user config from EEPROM
     user_config.raw = eeconfig_read_user();
 }
-
-/*========================== ADVANCE TAPDANCE FUNCTIONS ==========================*/
-
-// Determine the tapdance state to return
-/* uint8_t cur_dance(qk_tap_dance_state_t *state) { */
-/*     if (state->count == 1) { */
-/*         if (state->interrupted || !state->pressed) return SINGLE_TAP; */
-/*         else return SINGLE_HOLD; */
-/*     } */
-/*     else if (state->count == 2) { */
-/*         if (state->interrupted || !state->pressed) return DOUBLE_SINGLE_TAP; */
-/*         else return DOUBLE_HOLD; */
-/*     } */
-/*     else return 5; // Any number higher than the maximum state value you return above */
-/* }; */
-
-// --------------------------------------------------------------------
-// Handle the possible states for each tapdance keycode you define:
-// ----- HOME_I ----//
-/* void homei_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*     td_state = cur_dance(state); */
-/*     switch (td_state) { */
-/*         case SINGLE_TAP: */
-/*             register_code16(KC_I);  // send K for single tap - SARA AA */
-/*             break; */
-/*         case SINGLE_HOLD: */
-/*             register_mods(MOD_BIT(KC_LALT)); // shift mod when held */
-/*             break; */
-/*         case DOUBLE_SINGLE_TAP:     // send TOR TAO when double tap */
-/*             register_mods(MOD_BIT(KC_LSFT)); */
-/*             tap_code16(KC_I); */
-/*             /1* register_code16(KC_I); *1/ */
-/*             break; */
-/*         case DOUBLE_HOLD: */
-/*             layer_on(_NN); // shift mod when held */
-/*     } */
-/* }; */
-/* void homei_reset(qk_tap_dance_state_t *state, void *user_data) { */
-/*     switch (td_state) { */
-/*         case SINGLE_TAP: */
-/*             unregister_code16(KC_I); */
-/*             break; */
-/*         case SINGLE_HOLD: */
-/*             unregister_mods(MOD_BIT(KC_LALT)); // For a layer-tap key, use `layer_off(_MY_LAYER)` here */
-/*             break; */
-/*         case DOUBLE_SINGLE_TAP: */
-/*             /1* unregister_code16(KC_I); *1/ */
-/*             unregister_mods(MOD_BIT(KC_LSFT)); */
-/*             break; */
-/*         case DOUBLE_HOLD: */
-/*             layer_off(_NN); // shift mod when held */
-/*     } */
-/* }; */
-
 
 /*========================== MACROS (as per OS) ==========================*/
 
@@ -812,12 +710,13 @@ static void render_kyria_logo(void) {
 }
 
 static void render_qmk_logo(void) {
-  static const char PROGMEM qmk_logo[] = {
-    0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,0x89,0x8a,0x8b,0x8c,0x8d,0x8e,0x8f,0x90,0x91,0x92,0x93,0x94,
-    0xa0,0xa1,0xa2,0xa3,0xa4,0xa5,0xa6,0xa7,0xa8,0xa9,0xaa,0xab,0xac,0xad,0xae,0xaf,0xb0,0xb1,0xb2,0xb3,0xb4,
-    0xc0,0xc1,0xc2,0xc3,0xc4,0xc5,0xc6,0xc7,0xc8,0xc9,0xca,0xcb,0xcc,0xcd,0xce,0xcf,0xd0,0xd1,0xd2,0xd3,0xd4,0};
+    static const char PROGMEM qmk_logo[] = {
+      0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,0x89,0x8a,0x8b,0x8c,0x8d,0x8e,0x8f,0x90,0x91,0x92,0x93,0x94,
+      0xa0,0xa1,0xa2,0xa3,0xa4,0xa5,0xa6,0xa7,0xa8,0xa9,0xaa,0xab,0xac,0xad,0xae,0xaf,0xb0,0xb1,0xb2,0xb3,0xb4,
+      0xc0,0xc1,0xc2,0xc3,0xc4,0xc5,0xc6,0xc7,0xc8,0xc9,0xca,0xcb,0xcc,0xcd,0xce,0xcf,0xd0,0xd1,0xd2,0xd3,0xd4,0
+    };
 
-  oled_write_P(qmk_logo, false);
+    oled_write_P(qmk_logo, false);
 }
 
 static void render_status(void) {
