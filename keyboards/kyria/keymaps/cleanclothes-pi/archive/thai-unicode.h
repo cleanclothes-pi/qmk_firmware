@@ -1,0 +1,201 @@
+#pragma once
+#include "quantum.h"
+
+enum unicode_names {
+    KO_KAI,
+    KHO_KHAI,
+    KHO_KHUAT,
+    KHO_KHWAI,
+    KHO_KHON,
+    KHO_RAKHANG,
+    NGO_NGU,
+    CHO_CHAN,
+    CHO_CHING,
+    CHO_CHANG,
+    SO_SO,
+    CHO_CHOE,
+    YO_YING,
+    DO_CHADA,
+    TO_PATAK,
+    THO_THAN,
+    THO_NANGMONTHO,
+    THO_PHUTHAO,
+    NO_NEN,
+    DO_DEK,
+    TO_TAO,
+    THO_THUNG,
+    THO_THAHAN,
+    THO_THONG,
+    NO_NU,
+    BO_BAIMAI,
+    PO_PLA,
+    PHO_PHUNG,
+    FO_FA,
+    PHO_PHAN,
+    FO_FAN,
+    PHO_SAMPHAO,
+    MO_MA,
+    YO_YAK,
+    RO_RUA,
+    RU,
+    LO_LING,
+    LU,
+    WO_WAEN,
+    SO_SALA,
+    SO_RUSI,
+    SO_SUA,
+    HO_HIP,
+    LO_CHULA,
+    O_ANG,
+    HO_NOKHUK,
+
+     
+    PAIYANNOI,
+    SARA_A,
+    MAI_HANAKAT,
+    SARA_AA,
+    SARA_AM,
+    SARA_I,
+    SARA_II,
+    SARA_UE,
+    SARA_UEE,
+    SARA_U,
+    SARA_UU,
+    PHINTHU,
+    
+    YMBOL_BAHT,
+    SARA_E,
+    SARA_AE,
+    SARA_O,
+    SARA_AI_MAIMUAN,
+    SARA_AI_MAIMALAI,
+    LAKKHANGYAO,
+    MAIYAMOK,
+
+    MAITAIKHU,
+    MAI_EK,
+    MAI_THO,
+    MAI_TRI,
+    MAI_CHATTAWA,
+    THANTHAKHAT,
+    NIKHAHIT,
+    YAMAKKAN,
+
+    FONGMAN,
+
+    ZERO,
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    NINE,
+
+    ANGKHANKHU,
+    KHOMUT,    
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+
+ [KO_KAI           ]  = 0x0E01,// ก THAI CHARACTER KO KAI
+ [KHO_KHAI         ]  = 0x0E02,// ข THAI CHARACTER KHO KHAI
+ [KHO_KHUAT        ]  = 0x0E03,// ฃ THAI CHARACTER KHO KHUAT
+ [KHO_KHWAI        ]  = 0x0E04,// ค THAI CHARACTER KHO KHWAI
+ [KHO_KHON         ]  = 0x0E05,// ฅ THAI CHARACTER KHO KHON
+ [KHO_RAKHANG      ]  = 0x0E06,// ฆ THAI CHARACTER KHO RAKHANG
+ [NGO_NGU          ]  = 0x0E07,// ง THAI CHARACTER NGO NGU
+ [CHO_CHAN         ]  = 0x0E08,// จ THAI CHARACTER CHO CHAN
+ [CHO_CHING        ]  = 0x0E09,// ฉ THAI CHARACTER CHO CHING
+ [CHO_CHANG        ]  = 0x0E0A,// ช THAI CHARACTER CHO CHANG
+ [SO_SO            ]  = 0x0E0B,// ซ THAI CHARACTER SO SO
+ [CHO_CHOE         ]  = 0x0E0C,// ฌ THAI CHARACTER CHO CHOE
+ [YO_YING          ]  = 0x0E0D,// ญ THAI CHARACTER YO YING
+ [DO_CHADA         ]  = 0x0E0E,// ฎ THAI CHARACTER DO CHADA
+ [TO_PATAK         ]  = 0x0E0F,// ฏ THAI CHARACTER TO PATAK
+ [THO_THAN         ]  = 0x0E10,// ฐ THAI CHARACTER THO THAN
+ [THO_NANGMONTHO   ]  = 0x0E11,// ฑ THAI CHARACTER THO NANGMONTHO
+ [THO_PHUTHAO      ]  = 0x0E12,// ฒ THAI CHARACTER THO PHUTHAO
+ [NO_NEN           ]  = 0x0E13,// ณ THAI CHARACTER NO NEN
+ [DO_DEK           ]  = 0x0E14,// ด THAI CHARACTER DO DEK
+ [TO_TAO           ]  = 0x0E15,// ต THAI CHARACTER TO TAO
+ [THO_THUNG        ]  = 0x0E16,// ถ THAI CHARACTER THO THUNG
+ [THO_THAHAN       ]  = 0x0E17,// ท THAI CHARACTER THO THAHAN
+ [THO_THONG        ]  = 0x0E18,// ธ THAI CHARACTER THO THONG
+ [NO_NU            ]  = 0x0E19,// น THAI CHARACTER NO NU
+ [BO_BAIMAI        ]  = 0x0E1A,// บ THAI CHARACTER BO BAIMAI
+ [PO_PLA           ]  = 0x0E1B,// ป THAI CHARACTER PO PLA
+ [PHO_PHUNG        ]  = 0x0E1C,// ผ THAI CHARACTER PHO PHUNG
+ [FO_FA            ]  = 0x0E1D,// ฝ THAI CHARACTER FO FA
+ [PHO_PHAN         ]  = 0x0E1E,// พ THAI CHARACTER PHO PHAN
+ [FO_FAN           ]  = 0x0E1F,// ฟ THAI CHARACTER FO FAN
+ [PHO_SAMPHAO      ]  = 0x0E20,// ภ THAI CHARACTER PHO SAMPHAO
+ [MO_MA            ]  = 0x0E21,// ม THAI CHARACTER MO MA
+ [YO_YAK           ]  = 0x0E22,// ย THAI CHARACTER YO YAK
+ [RO_RUA           ]  = 0x0E23,// ร THAI CHARACTER RO RUA
+ [RU               ]  = 0x0E24,// ฤ THAI CHARACTER RU
+ [LO_LING          ]  = 0x0E25,// ล THAI CHARACTER LO LING
+ [LU               ]  = 0x0E26,// ฦ THAI CHARACTER LU
+ [WO_WAEN          ]  = 0x0E27,// ว THAI CHARACTER WO WAEN
+ [SO_SALA          ]  = 0x0E28,// ศ THAI CHARACTER SO SALA
+ [SO_RUSI          ]  = 0x0E29,// ษ THAI CHARACTER SO RUSI
+ [SO_SUA           ]  = 0x0E2A,// ส THAI CHARACTER SO SUA
+ [HO_HIP           ]  = 0x0E2B,// ห THAI CHARACTER HO HIP
+ [LO_CHULA         ]  = 0x0E2C,// ฬ THAI CHARACTER LO CHULA
+ [O_ANG            ]  = 0x0E2D,// อ THAI CHARACTER O ANG
+ [HO_NOKHUK        ]  = 0x0E2E,// ฮ THAI CHARACTER HO NOKHUK
+ 
+                  //SARA -- Vowel characters
+ [PAIYANNOI        ]  = 0x0E2F,// ฯ THAI CHARACTER PAIYANNOI
+ [SARA_A           ]  = 0x0E30,// ะ THAI CHARACTER SARA A
+ [MAI_HANAKAT      ]  = 0x0E31,// ั  THAI CHARACTER MAI HAN-AKAT
+ [SARA_AA          ]  = 0x0E32,// า THAI CHARACTER SARA AA
+ [SARA_AM          ]  = 0x0E33,// ำ THAI CHARACTER SARA AM
+ [SARA_I           ]  = 0x0E34,// ิ  THAI CHARACTER SARA I
+ [SARA_II          ]  = 0x0E35,// ี  THAI CHARACTER SARA II
+ [SARA_UE          ]  = 0x0E36,// ึ  THAI CHARACTER SARA UE
+ [SARA_UEE         ]  = 0x0E37,// ื  THAI CHARACTER SARA UEE
+ [SARA_U           ]  = 0x0E38,// ุ  THAI CHARACTER SARA U
+ [SARA_UU          ]  = 0x0E39,// ู  THAI CHARACTER SARA UU
+ [PHINTHU          ]  = 0x0E3A,// ฺ  THAI CHARACTER PHINTHU
+ 
+ [YMBOL_BAHT       ]  = 0x0E3F,// ฿ THAI CURRENCY SYMBOL BAHT
+ [SARA_E           ]  = 0x0E40,// เ THAI CHARACTER SARA E
+ [SARA_AE          ]  = 0x0E41,// แ THAI CHARACTER SARA AE
+ [SARA_O           ]  = 0x0E42,// โ THAI CHARACTER SARA O
+ [SARA_AI_MAIMUAN  ]  = 0x0E43,// ใ THAI CHARACTER SARA AI MAIMUAN
+ [SARA_AI_MAIMALAI ]  = 0x0E44,// ไ THAI CHARACTER SARA AI MAIMALAI
+ [LAKKHANGYAO      ]  = 0x0E45,// ๅ THAI CHARACTER LAKKHANGYAO
+ [MAIYAMOK         ]  = 0x0E46,// ๆ THAI CHARACTER MAIYAMOK
+ 
+ [MAITAIKHU        ]  = 0x0E47,// ็  THAI CHARACTER MAITAIKHU
+ [MAI_EK           ]  = 0x0E48,// ่  THAI CHARACTER MAI EK
+ [MAI_THO          ]  = 0x0E49,// ้  THAI CHARACTER MAI THO
+ [MAI_TRI          ]  = 0x0E4A,// ๊  THAI CHARACTER MAI TRI
+ [MAI_CHATTAWA     ]  = 0x0E4B,// ๋  THAI CHARACTER MAI CHATTAWA
+ [THANTHAKHAT      ]  = 0x0E4C,// ์  THAI CHARACTER THANTHAKHAT
+ [NIKHAHIT         ]  = 0x0E4D,// ํ  THAI CHARACTER NIKHAHIT
+ [YAMAKKAN         ]  = 0x0E4E,// ๎  THAI CHARACTER YAMAKKAN
+
+ [FONGMAN          ]  = 0x0E4F,// ๏ THAI CHARACTER FONGMAN
+ 
+ [ZERO             ]  = 0x0E50,// ๐ THAI DIGIT ZERO
+ [ONE              ]  = 0x0E51,// ๑ THAI DIGIT ONE
+ [TWO              ]  = 0x0E52,// ๒ THAI DIGIT TWO
+ [THREE            ]  = 0x0E53,// ๓ THAI DIGIT THREE
+ [FOUR             ]  = 0x0E54,// ๔ THAI DIGIT FOUR
+ [FIVE             ]  = 0x0E55,// ๕ THAI DIGIT FIVE
+ [SIX              ]  = 0x0E56,// ๖ THAI DIGIT SIX
+ [SEVEN            ]  = 0x0E57,// ๗ THAI DIGIT SEVEN
+ [EIGHT            ]  = 0x0E58,// ๘ THAI DIGIT EIGHT
+ [NINE             ]  = 0x0E59,// ๙ THAI DIGIT NINE
+  
+ [ANGKHANKHU]         = 0x0E5A,// ๚ THAI CHARACTER ANGKHANKHU
+ [KHOMUT]             = 0x0E5B,// ๛ THAI CHARACTER KHOMUT
+
+};
+
+
+/* #define TH_R14 XP(DO_DEK,SARA_O) */
