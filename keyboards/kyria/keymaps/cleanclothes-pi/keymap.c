@@ -349,27 +349,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* ---------------------------------------------------------------------------- */
 //  Base Layer [1]: THAI 
 	[_TH] = LAYOUT(
-    //+---------+----------+----------+----------+------------+-----------+                                         +----------+------------+----------+------------+------------+------------+
-         ____   ,   KC_Q   ,   KC_W   ,   KC_E   ,    KC_R    ,    KC_T   ,                                             KC_Y   ,   KC_U     ,   KC_I   ,   KC_O     ,    KC_P    ,   KC_LBRC  ,
-    //+---------+----------+----------+----------+------------+-----------+                                         +----------+------------+----------+------------+------------+------------+
-        KC_ESC  ,   KC_A   , TH_HOME_S, TH_HOME_D,  TH_HOME_F ,    KC_G   ,                                             KC_H   ,  TH_HOME_J , TH_HOME_K, TH_HOME_L  ,    KC_SCLN ,   KC_QUOT  ,   
-    //+---------+----------+----------+----------+------------+-----------+--------+--------+     +--------+--------+----------+------------+----------+------------+------------+------------+
-        OneSFT  ,    KC_Z  ,   KC_X   ,   KC_C   ,    KC_V    ,    KC_B   , ThL_TI , ThL_TO ,       ThR_TO , ThR_TI ,   KC_N   ,   KC_M     ,  KC_COMM ,   KC_DOT   ,   KC_SLSH  ,   KC_RBRC  ,
-    //+---------+----------+----------+----------+------------+-----------+--------+--------+     +--------+--------+----------+------------+----------+------------+------------+------------+
-                                        XXXX  ,  OSL(_MS)  ,LT(_WM,KC_TAB),  ThL_BI, ThL_BO ,       ThR_BO , ThR_BI , MS_BSPC  ,   MS_DEL   , Chlang 
-    //                                +----------+------------+-----------+--------+--------+     +--------+--------+----------+------------+----------+
+         ____, 	KC_L,	KC_S,	KC_U,	KC_P,	KC_0,					 		                        KC_B,	KC_COMMA,KC_RBRC,	    KC_X,	KC_W,	    S(KC_W),
+        KC_ESC,	KC_QUOT,KC_G,LT(_THUP,KC_D),KC_O,KC_F,				 		                            KC_H,	KC_K,	LT(_THUP,KC_J),	KC_I,	KC_SCLN,	KC_LBRC,
+        OneSFT,	KC_C,	KC_T,	KC_Y,	    KC_8,	S(KC_H),ThL_TI,	ThL_TO,			ThR_TO , ThR_TI ,	KC_9,	KC_M,	KC_V,	        KC_N,	KC_MINS,	S(KC_N),
+		                XXXX,	OSL(_MS), LT(_WM,KC_TAB),   ThL_BI,	ThL_BO,	        ThR_BO , ThR_BI ,	MS_BSPC,MS_DEL, Chlang	
     ),
     [_THUP] = LAYOUT(
-    //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
-         ____  ,  KC_1  ,  ____  , KC_LBRC,  KC_7  ,  ____  ,                                                   ____  , KC_QUOT, KC_RBRC,  ____  ,  ____  ,  ____  , 
-    //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
-         ____  ,  ____  ,  KC_4  ,  KC_5  , KC_CIRC,  KC_6  ,                                                   KC_0  ,  KC_8  ,  KC_9  , KC_MINS, KC_EQL ,  ____  ,
-    //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
-         ____  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,  ____  ,
-    //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
-                                    ____  ,  ____  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,  ____  ,  ____  , TO(_CLMK)
-    //                           \--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+
-
+        ____  , S(KC_A),KC_Q,	S(KC_F),  S(KC_K),  S(KC_E),                                        S(KC_LBRC),	KC_5,	    KC_4,	    S(KC_COMMA),S(KC_U),	S(KC_DOT),
+        ____  , KC_R,	KC_DOT,	KC_EQUAL, S(KC_6),  S(KC_D),                                        S(KC_N),	KC_6,	    KC_7,	    KC_E,	    S(KC_I),	S(KC_S),
+        ____  , KC_A,	S(KC_R),KC_Z,	  S(KC_P),  S(KC_C), ____,	____,	        ____,	____,	KC_SLSH,	S(KC_L),	S(KC_SCLN),	S(KC_T),	S(KC_J),	S(KC_G),
+                                XXXX,	  ____,	    ____,	 ____,	____,	        ____,	____,	____,	____,	TO(_CLMK)
     ),
     [_THCOMMON] = LAYOUT(
     //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
@@ -516,24 +505,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             break;
-        case WorkspcLeft5:
-            if (record->event.pressed) {
-                if (user_config.osIsWindows == 1) {
-                    tap_code16(C(G(KC_LEFT)));
-                } else if (user_config.osIsWindows == 0) {
-                    tap_code16(LGUI(KC_P5));
-                }
-            }
-            break;
-        case WorkspcRight6:
-            if (record->event.pressed) {
-                if (user_config.osIsWindows == 1) {
-                    tap_code16(C(G(KC_RIGHT)));
-                } else if (user_config.osIsWindows == 0) {
-                    tap_code16(LGUI(KC_P6));
-                }
-            }
-            break;
         case Chlang:
             if (record->event.pressed) {
                 if (user_config.osIsWindows == 1) {
@@ -657,32 +628,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // else process HOME_N as usual.
             return true;
 
-    // my own config, but donsn't work
-        case KC_Y:
-            if (record->event.pressed && record->tap.count == 1 && !record->tap.interrupted) {
-                if (mod_state & MOD_BIT(KC_RSHIFT)) {  // same effect but for 'ey' in succession, e.g. typing "they"
-                    unregister_code(KC_RSHIFT);
-                    tap_code(KC_E);
-                    tap_code(KC_Y);
-                    set_mods(mod_state);
-                    return false;
-                }
-            }
-            // else process KC_Y as usual. 
-            return true;
+     /* // my own config, but donsn't work */
+    /*     case KC_Y: */
+    /*         if (record->event.pressed && record->tap.count == 1 && !record->tap.interrupted) { */
+    /*             if (mod_state & MOD_BIT(KC_RSHIFT)) {  // same effect but for 'ey' in succession, e.g. typing "they" */
+    /*                 unregister_code(KC_RSHIFT); */
+    /*                 tap_code(KC_E); */
+    /*                 tap_code(KC_Y); */
+    /*                 set_mods(mod_state); */
+    /*                 return false; */
+    /*             } */
+    /*         } */
+    /*         // else process KC_Y as usual. */ 
+    /*         return true; */
 
-        case HOME_O:
-            if (record->event.pressed && record->tap.count == 1 && !record->tap.interrupted) {
-                if (mod_state & MOD_BIT(KC_LALT)){  // same effect but for 'io' in succession
-                    unregister_code(KC_LALT);
-                    tap_code(KC_I);
-                    tap_code(KC_O);
-                    set_mods(mod_state);
-                    return false;
-                }
-            }
-            // else process KC_O as usual. 
-            return true;
+    /*     case HOME_O: */
+    /*         if (record->event.pressed && record->tap.count == 1 && !record->tap.interrupted) { */
+    /*             if (mod_state & MOD_BIT(KC_LALT)){  // same effect but for 'io' in succession */
+    /*                 unregister_code(KC_LALT); */
+    /*                 tap_code(KC_I); */
+    /*                 tap_code(KC_O); */
+    /*                 set_mods(mod_state); */
+    /*                 return false; */
+    /*             } */
+    /*         } */
+    /*         // else process KC_O as usual. */ 
+    /*         return true; */
 
         }
     return true;
@@ -722,7 +693,7 @@ static void render_qmk_logo(void) {
 static void render_status(void) {
     // QMK Logo and version information
     render_qmk_logo();
-    oled_write_P(PSTR("Cleanclothes v6.0\n\n"), false);
+    oled_write_P(PSTR("CustomThai v1\n\n"), false);
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Layer: "), false);
