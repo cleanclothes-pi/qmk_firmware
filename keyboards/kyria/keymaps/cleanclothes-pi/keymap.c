@@ -66,11 +66,11 @@ user_config_t user_config;
 
 // THAI LAYER HOME ROW
     // left hand
-#define TH_HOME_F LT(_THCOMMON, KC_F)
+/* #define TH_HOME_F LT(_THCOMMON, KC_F) */
 #define TH_HOME_D LSFT_T(KC_D)
 #define TH_HOME_S LT(_THUP, KC_S)
     // right hand
-#define TH_HOME_J LT(_THCOMMON, KC_J)
+/* #define TH_HOME_J LT(_THCOMMON, KC_J) */
 #define TH_HOME_K LSFT_T(KC_K)
 #define TH_HOME_L LT(_THUP, KC_L)
 
@@ -114,7 +114,8 @@ enum layers {
     _QWERTY,
     _TH,
     _THUP,
-    _THCOMMON,
+    /* _THCOMMON, */
+    _GAME,
     _NN,
     _WM,
     _SYMB,
@@ -132,36 +133,36 @@ enum custom_keycodes {
     Chlang,
     Chinput,
     // Thai words macros
-    thKan,
-    thKwam,
-    thKrub,
-    thLAE,
-    thKEU,
-    thJAK,
-    thKONG,
-    thCHEN,
-    thTAA,
-    thTAE,
-    thREU,
-    thPRAU,
-    thDANGNAN,
-    thDAI,
-    thMAI,
-    thYANGRAI,
-    thARAI,
-    thNNGJAK,
-    thPEN,
-    thNUNNUN,
-    thWAA,
-    thPENTON,
-    thTONG,
-    thLAEW,
-    thYRKT,
-    thKLAOKEU,
-    thKUAN,
-    thMYNAME,
-    thAJAN,
-    thEEA
+    /* thKan, */
+    /* thKwam, */
+    /* thKrub, */
+    /* thLAE, */
+    /* thKEU, */
+    /* thJAK, */
+    /* thKONG, */
+    /* thCHEN, */
+    /* thTAA, */
+    /* thTAE, */
+    /* thREU, */
+    /* thPRAU, */
+    /* thDANGNAN, */
+    /* thDAI, */
+    /* thMAI, */
+    /* thYANGRAI, */
+    /* thARAI, */
+    /* thNNGJAK, */
+    /* thPEN, */
+    /* thNUNNUN, */
+    /* thWAA, */
+    /* thPENTON, */
+    /* thTONG, */
+    /* thLAEW, */
+    /* thYRKT, */
+    /* thKLAOKEU, */
+    /* thKUAN, */
+    /* thMYNAME, */
+    /* thAJAN, */
+    /* thEEA */
 };
 
 
@@ -360,17 +361,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ____  , KC_A,	S(KC_R),KC_Z,	  S(KC_P),  S(KC_C), ____,	____,	        ____,	____,	KC_SLSH,	S(KC_L),	S(KC_SCLN),	S(KC_T),	S(KC_J),	S(KC_G),
                                 XXXX,	  ____,	    ____,	 ____,	____,	        ____,	____,	____,	____,	TO(_CLMK)
     ),
-    [_THCOMMON] = LAYOUT(
-    //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
-         XXXX  ,  XXXX  ,  XXXX  , thKan  , thTAA  , thAJAN ,                                                   XXXX  , thKrub , thKwam , thCHEN ,  XXXX  ,  XXXX  , 
-    //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
-       thMYNAME, thLAEW , thREU  , thLAE  ,  thTAE ,thYANGRAI,                                                 thARAI , thPEN  , thDAI  , thMAI  , thWAA  ,  XXXX  ,
-    //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
-        XXXX  , thDANGNAN , thYRKT , thPRAU ,thNNGJAK, XXXX ,  XXXX  ,  XXXX  ,               XXXX  ,  XXXX  ,  XXXX  ,thNUNNUN, thKUAN , thPENTON, XXXX  ,  XXXX  ,
-    //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
-                                    XXXX  ,  XXXX  ,  XXXX  ,  XXXX  ,  XXXX  ,               XXXX  ,  XXXX  ,  XXXX  ,  XXXX  , TO(_CLMK)
-    //                           \--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+
+    /* [_THCOMMON] = LAYOUT( */
+    /* //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+ */
+    /*      XXXX  ,  XXXX  ,  XXXX  , thKan  , thTAA  , thAJAN ,                                                   XXXX  , thKrub , thKwam , thCHEN ,  XXXX  ,  XXXX  , */ 
+    /* //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+ */
+    /*    thMYNAME, thLAEW , thREU  , thLAE  ,  thTAE ,thYANGRAI,                                                 thARAI , thPEN  , thDAI  , thMAI  , thWAA  ,  XXXX  , */
+    /* //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+ */
+    /*     XXXX  , thDANGNAN , thYRKT , thPRAU ,thNNGJAK, XXXX ,  XXXX  ,  XXXX  ,               XXXX  ,  XXXX  ,  XXXX  ,thNUNNUN, thKUAN , thPENTON, XXXX  ,  XXXX  , */
+    /* //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+ */
+    /*                                 XXXX  ,  XXXX  ,  XXXX  ,  XXXX  ,  XXXX  ,               XXXX  ,  XXXX  ,  XXXX  ,  XXXX  , TO(_CLMK) */
+    /* //                           \--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+ */
 
+    /* ), */
+
+    [_GAME] = LAYOUT(
+    //+--------+--------+--------+--------+--------+--------\                                                /--------+--------+--------+--------+--------+--------+
+       CAPS_Y  ,  KC_Q  ,  KC_W  ,  KC_E  ,  KC_R  ,  KC_T  ,                                                   KC_Y  ,  KC_U  ,  KC_I  ,  KC_O  ,  KC_P  , KC_MINS,
+    //+--------+--------+--------+--------+--------+--------+                                                +--------+--------+--------+--------+--------+--------+
+       KC_ESC  ,  KC_A  ,  KC_S  ,  KC_D  ,  KC_F  ,  KC_G  ,                                                   KC_H  ,  KC_J  ,  KC_K  ,  KC_L  ,  KC_O  , KC_QUOT,
+    //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
+        OneSFT ,  KC_Z  ,  KC_X  ,  KC_C  ,  KC_V  ,  KC_B  , KC_1   , KC_2   ,              ThR_TO , ThR_TI ,  KC_N  ,  KC_M  ,NN_COMMA, KC_DOT , KC_SLSH, KC_EXLM ,        
+    //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
+                                    XXXX  , KC_LCTL, KC_TAB , KC_SPC , KC_LALT,              ThR_BO , ThR_BI , MS_BSPC, TO(_ADJ), TO(_CLMK)
+    //                           \--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------/
+  
     ),
 
 /* ---------------------------------------------------------------------------- */
@@ -426,7 +440,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
          ____  , KC_F12 , KC_F7  , KC_F8  , KC_F9  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,  ____  , KC_MPLY, KC_MSTP, KC_MUTE,  ____  , OSSwitch,
     //+--------+--------+--------+--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+--------+--------+--------+
-                                    ____  ,  ____  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,  ____  ,  ____  , TO(_CLMK)
+                                    ____  ,  ____  ,  ____  ,  ____  ,  ____  ,               ____  ,  ____  ,  ____  , TO(_GAME) , TO(_CLMK)
     //                           \--------+--------+--------+--------+--------+            +--------+--------+--------+--------+--------+
     ),
 
@@ -530,66 +544,66 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
 
         // THAI WORDS MACROs
-        case thKan:
-            if (record->event.pressed) { SEND_STRING("dki"); } else {}      break; //การ
-        case thKwam:
-            if (record->event.pressed) { SEND_STRING("8;k,"); } else {}     break; //ความ
-        case thKrub:
-            if (record->event.pressed) { SEND_STRING("8iy["); } else {}     break; //ครับ
-        case thLAE:
-            if (record->event.pressed) { SEND_STRING("c]t"); } else {}     break; //และ
-        case thKEU:
-            if (record->event.pressed) { SEND_STRING("8nv"); } else {}     break; //คือ
-        case thJAK:
-            if (record->event.pressed) { SEND_STRING("0kd"); } else {}     break; //จาก
-        case thKONG:
-            if (record->event.pressed) { SEND_STRING("-v'"); } else {}     break; //ของ
-        case thCHEN:
-            if (record->event.pressed) { SEND_STRING("g=jo"); } else {}     break; //เช่น
-        case thTAA:
-            if (record->event.pressed) { SEND_STRING("5hk"); } else {}     break; //ถ้า
-        case thTAE:
-            if (record->event.pressed) { SEND_STRING("c9j"); } else {}     break; //แต่
-        case thREU:
-            if (record->event.pressed) { SEND_STRING("sinv"); } else {}     break; //หรือ
-        case thPRAU:
-            if (record->event.pressed) { SEND_STRING("grikt"); } else {}     break; //เพราะ
-        case thDANGNAN:
-            if (record->event.pressed) { SEND_STRING("fy'oyho"); } else {}     break; //ดังนั้น
-        case thDAI:
-            if (record->event.pressed) { SEND_STRING("wfh"); } else {}     break; //ได้
-        case thMAI:
-            if (record->event.pressed) { SEND_STRING("w,j"); } else {}     break; //ไม่
-        case thYANGRAI:
-            if (record->event.pressed) { SEND_STRING("vpjk'wi"); } else {}     break; //อย่างไร
-        case thARAI:
-            if (record->event.pressed) { SEND_STRING("vtwi"); } else {}     break; //อะไร
-        case thNNGJAK:
-            if (record->event.pressed) { SEND_STRING("gonjv'0kd"); } else {}     break; //จาก
-        case thPEN:
-            if (record->event.pressed) { SEND_STRING("gxHo"); } else {}     break; //เป็น
-        case thNUNNUN:
-            if (record->event.pressed) { SEND_STRING("oyhoq"); } else {}     break; //นั้นๆ
-        case thWAA:
-            if (record->event.pressed) { SEND_STRING(";jk"); } else {}     break; //ว่า
-        case thPENTON:
-            if (record->event.pressed) { SEND_STRING("gxHo9ho"); } else {}     break; //เป็นต้น
-        case thTONG:
-            if (record->event.pressed) { SEND_STRING("9hv'"); } else {}     break; //ต้อง
-        case thLAEW:
-            if (record->event.pressed) { SEND_STRING("cc]h;"); } else {}     break; //แล้ว
-        case thYRKT: 
-            if (record->event.pressed) { SEND_STRING("vpjk'widH9k,"); } else {}     break; //อย่างไรก็ตาม
-        case thKLAOKEU: 
-            if (record->event.pressed) { SEND_STRING("d]jk;8nv"); } else {}     break; //กล่าคือ
-        case thKUAN: 
-            if (record->event.pressed) { SEND_STRING("8;i"); } else {}     break; //ควร
-        case thMYNAME: 
-            if (record->event.pressed) { SEND_STRING("4u vk4iINgvujp,"); } else {}     break; // ภี อาภรณ์เอี่ยม
-        case thAJAN: 
-            if (record->event.pressed) { SEND_STRING("vk0kipN"); } else {}     break; // อาจารย์
-        case thEEA: // สระเอีย
-            if (record->event.pressed) { SEND_STRING("g"); } else { SEND_STRING("up"); } break;
+        /* case thKan: */
+        /*     if (record->event.pressed) { SEND_STRING("dki"); } else {}      break; //การ */
+        /* case thKwam: */
+        /*     if (record->event.pressed) { SEND_STRING("8;k,"); } else {}     break; //ความ */
+        /* case thKrub: */
+        /*     if (record->event.pressed) { SEND_STRING("8iy["); } else {}     break; //ครับ */
+        /* case thLAE: */
+        /*     if (record->event.pressed) { SEND_STRING("c]t"); } else {}     break; //และ */
+        /* case thKEU: */
+        /*     if (record->event.pressed) { SEND_STRING("8nv"); } else {}     break; //คือ */
+        /* case thJAK: */
+        /*     if (record->event.pressed) { SEND_STRING("0kd"); } else {}     break; //จาก */
+        /* case thKONG: */
+        /*     if (record->event.pressed) { SEND_STRING("-v'"); } else {}     break; //ของ */
+        /* case thCHEN: */
+        /*     if (record->event.pressed) { SEND_STRING("g=jo"); } else {}     break; //เช่น */
+        /* case thTAA: */
+        /*     if (record->event.pressed) { SEND_STRING("5hk"); } else {}     break; //ถ้า */
+        /* case thTAE: */
+        /*     if (record->event.pressed) { SEND_STRING("c9j"); } else {}     break; //แต่ */
+        /* case thREU: */
+        /*     if (record->event.pressed) { SEND_STRING("sinv"); } else {}     break; //หรือ */
+        /* case thPRAU: */
+        /*     if (record->event.pressed) { SEND_STRING("grikt"); } else {}     break; //เพราะ */
+        /* case thDANGNAN: */
+        /*     if (record->event.pressed) { SEND_STRING("fy'oyho"); } else {}     break; //ดังนั้น */
+        /* case thDAI: */
+        /*     if (record->event.pressed) { SEND_STRING("wfh"); } else {}     break; //ได้ */
+        /* case thMAI: */
+        /*     if (record->event.pressed) { SEND_STRING("w,j"); } else {}     break; //ไม่ */
+        /* case thYANGRAI: */
+        /*     if (record->event.pressed) { SEND_STRING("vpjk'wi"); } else {}     break; //อย่างไร */
+        /* case thARAI: */
+        /*     if (record->event.pressed) { SEND_STRING("vtwi"); } else {}     break; //อะไร */
+        /* case thNNGJAK: */
+        /*     if (record->event.pressed) { SEND_STRING("gonjv'0kd"); } else {}     break; //จาก */
+        /* case thPEN: */
+        /*     if (record->event.pressed) { SEND_STRING("gxHo"); } else {}     break; //เป็น */
+        /* case thNUNNUN: */
+        /*     if (record->event.pressed) { SEND_STRING("oyhoq"); } else {}     break; //นั้นๆ */
+        /* case thWAA: */
+        /*     if (record->event.pressed) { SEND_STRING(";jk"); } else {}     break; //ว่า */
+        /* case thPENTON: */
+        /*     if (record->event.pressed) { SEND_STRING("gxHo9ho"); } else {}     break; //เป็นต้น */
+        /* case thTONG: */
+        /*     if (record->event.pressed) { SEND_STRING("9hv'"); } else {}     break; //ต้อง */
+        /* case thLAEW: */
+        /*     if (record->event.pressed) { SEND_STRING("cc]h;"); } else {}     break; //แล้ว */
+        /* case thYRKT: */ 
+        /*     if (record->event.pressed) { SEND_STRING("vpjk'widH9k,"); } else {}     break; //อย่างไรก็ตาม */
+        /* case thKLAOKEU: */ 
+        /*     if (record->event.pressed) { SEND_STRING("d]jk;8nv"); } else {}     break; //กล่าคือ */
+        /* case thKUAN: */ 
+        /*     if (record->event.pressed) { SEND_STRING("8;i"); } else {}     break; //ควร */
+        /* case thMYNAME: */ 
+        /*     if (record->event.pressed) { SEND_STRING("4u vk4iINgvujp,"); } else {}     break; // ภี อาภรณ์เอี่ยม */
+        /* case thAJAN: */ 
+        /*     if (record->event.pressed) { SEND_STRING("vk0kipN"); } else {}     break; // อาจารย์ */
+        /* case thEEA: // สระเอีย */
+        /*     if (record->event.pressed) { SEND_STRING("g"); } else { SEND_STRING("up"); } break; */
 
 
     /* ========= HOMEROW MODIFIER SETUP ====================*/
@@ -706,6 +720,9 @@ static void render_status(void) {
             break;
         case _THUP:
             oled_write_P(PSTR("Thai Up\n"), false);
+            break;
+        case _GAME:
+            oled_write_P(PSTR("Game\n"), false);
             break;
         case _NN:
             oled_write_P(PSTR("Nav&Numbers\n"), false);
